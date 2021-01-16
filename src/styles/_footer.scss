@@ -1,0 +1,47 @@
+footer {
+  height: 20vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: $footerColour;
+
+  // footer-content
+  & > :first-child {
+    height: 100%;
+    @include flexCenter(column);
+    justify-content: space-around;
+
+    .footer-menu {
+      width: 100%;
+      line-height: 2;
+      height: 70%;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      font-weight: bold;
+      @include flexCenter(column);
+      align-items: start;
+      align-content: space-evenly;
+      justify-content: center;
+    }
+  }
+}
+
+/*------------- Reponsive ---------*/
+// Tablet
+@media only screen and (min-width: map-get($breakpoints, tablet)) {
+  footer {
+    //height: 15vh;
+    & > :first-child {
+      flex-direction: row;
+      .footer-menu {
+        height: 80%;
+        width: 50%;
+        align-content: space-around;
+      }
+    }
+  }
+  // Desktop
+  @media screen and (min-width: map-get($breakpoints, desktop)) {
+  }
+}

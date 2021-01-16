@@ -1,0 +1,10 @@
+main {
+}
+
+/*------------- Reponsive ---------*/
+//Tablet
+@media only screen and (min-width: map-get($breakpoints, tablet)) {
+  //Desktop
+  @media screen and (min-width: map-get($breakpoints, desktop)) {
+  }
+}

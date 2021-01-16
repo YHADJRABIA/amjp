@@ -1,0 +1,38 @@
+{
+  "languages": {
+    "en": "Anglais",
+    "fr": "Français"
+  },
+
+  "navTop": {
+    "radio": "Radios",
+    "tv": "Chaines tv",
+    "replay": "Replay"
+  },
+
+  "navMenu": {
+    "home": "Accueil",
+    "series": "Series",
+    "documentary": "Documentaire",
+    "art-of-living": "Arts de vivre",
+    "magazines": "Magazines",
+    "interviews": "Interviews",
+    "podcasts": "Podcasts",
+    "contact": "Contact"
+  },
+
+  "myAccount": "Mon compte",
+
+  "footerMenu": {
+    "listen": "Ecouter",
+    "watch": "Regarder",
+    "shakeItRadio": "Shake It Radio",
+    "shakeItTV": "Shake It TV",
+    "fulaAssos": "Fula Assos",
+    "legal": "Mentions legales",
+    "contactUs": "Contactez-nous",
+    "ads": "Regie Publicitaire",
+    "confidentiality": "Politique de confidentialité",
+    "cgu": "CGU"
+  }
+}
