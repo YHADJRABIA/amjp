@@ -5,70 +5,61 @@ $separatorBorder: 1px solid #000;
 // Barre de navigation
 nav {
   height: 20vh;
-  //@include flexCenter(column);
+  width: 100%;
   //top: 0;
   z-index: 1;
 
   // Partie supérieure
   & > :first-child {
     height: 30%;
-    width: 100%;
+
     background-color: $topNav-colour;
     border-bottom: $bottomBorder;
-
-    .nav-top-content {
-      height: 100%;
+    @include flexCenter(row);
+    justify-content: space-between;
+    padding: 0 2rem;
+    // Radios | Chaînes TV | Replay
+    .radio-tv-replay {
       @include flexCenter(row);
-      justify-content: space-between;
-      margin: 0 2rem;
-      // Radios | Chaînes TV | Replay
-      .radio-tv-replay {
-        @include flexCenter(row);
-        & > * {
-          padding: 0.9rem 1.5rem;
-          text-transform: uppercase;
-        }
-        // Chaînes TV
-        & > :nth-child(2n) {
-          border-left: $separatorBorder;
-          border-right: $separatorBorder;
-        }
+      & > * {
+        padding: 0.9rem 1.5rem;
+        text-transform: uppercase;
       }
-      // Mon compte
-      .account {
+      // Chaînes TV
+      & > :nth-child(2n) {
+        border-left: $separatorBorder;
+        border-right: $separatorBorder;
       }
+    }
+    // Mon compte
+    .account {
     }
   }
 
   // Partie inférieure
   & > :last-child {
     height: 70%;
-    width: 100%;
     border-bottom: $bottomBorder;
+    @include flexCenter(column);
+    justify-content: space-evenly;
 
-    .nav-bottom-content {
-      height: 100%;
-      @include flexCenter(column);
-      justify-content: space-evenly;
+    .SIP-logo {
+      margin: 0 auto;
+      height: 6rem;
+      width: 18rem;
+    }
 
-      .SIP-logo {
-        margin: 0 auto;
-        height: 6rem;
-        width: 18rem;
+    .nav-menu {
+      text-transform: uppercase;
+      @include flexCenter(row);
+      justify-content: center;
+      & > * {
+        margin: 0 2rem;
       }
-
-      .nav-menu {
-        text-transform: uppercase;
-        @include flexCenter(row);
-        justify-content: center;
-        & > * {
-          margin: 0 2rem;
-        }
-      }
-      .fa-search {
-        color: $searchIcon-colour;
-        font-size: 1.5rem;
-      }
+    }
+    .fa-search {
+      color: $searchIcon-colour;
+      font-size: 1.5rem;
     }
   }
 

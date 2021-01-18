@@ -17,62 +17,71 @@ const Nav = ({ socialMedia, radioTVReplay, myAccount, navMenu, i18n }) => {
 
   return (
     <nav>
+      {/* Nav supérieure */}
       <div className="nav-top">
-        <div className="nav-top-content">
-          <ul className="social-media">
-            {socialMedia.map((element) => (
-              <li key={element.id}>
-                <a href={element.path}>
-                  <i
-                    style={{ color: element.colour }}
-                    className={element.icon}
-                    title={element.name}
-                    key={element.id}
-                  ></i>
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className="radio-tv-replay">
-            {radioTVReplay.map((element) => (
-              <li key={element.id}>
-                <a href={element.path} title={element.name} key={element.id}>
-                  {element.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className="account">
-            <li>
-              <a href={myAccount.path} title={myAccount.name}>
-                <button className="shake">{myAccount.name}</button>
+        <ul className="social-media">
+          {socialMedia.map((element) => (
+            <li key={element.id}>
+              <a href={element.path} target="_blank" rel="noopener noreferrer">
+                <i
+                  style={{ color: element.colour }}
+                  className={element.icon}
+                  title={element.name}
+                  key={element.id}
+                ></i>
               </a>
             </li>
-          </ul>
-        </div>
-      </div>
-      <div className="nav-bottom">
-        <div className="nav-bottom-content">
-          <img
-            className="SIP-logo shake-rotate"
-            alt="logo"
-            title="Logo Shake it Play"
-            src={logo}
-          ></img>
-
-          <ul className="nav-menu">
-            {navMenu.map((element) => (
-              <li key={element.id}>
-                <a href={element.path} title={element.name}>
-                  {element.name}
-                </a>
-              </li>
-            ))}
-            <li className="search">
-              <i className="fas fa-search" title="Filter"></i>
+          ))}
+        </ul>
+        <ul className="radio-tv-replay">
+          {radioTVReplay.map((element) => (
+            <li key={element.id}>
+              <Link
+                to={`/${element.path}`}
+                title={element.name}
+                key={element.id}
+              >
+                {element.name}
+              </Link>
             </li>
-          </ul>
-        </div>
+          ))}
+        </ul>
+
+        {/* Accès au compte/Inscription */}
+        <ul className="account">
+          <li>
+            <Link to="/account" title={myAccount.name}>
+              <button className="shake">{myAccount.name}</button>
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      {/* Nav inférieure */}
+      <div className="nav-bottom">
+        <img
+          className="SIP-logo shake-rotate"
+          alt="logo"
+          title="Logo Shake it Play"
+          src={logo}
+        ></img>
+
+        <ul className="nav-menu">
+          {navMenu.map((element) => (
+            <li key={element.id}>
+              <Link
+                to={`/${element.path}`}
+                title={element.name}
+                key={element.id}
+              >
+                {element.name}
+              </Link>
+            </li>
+          ))}
+          <li className="search">
+            <i className="fas fa-search" title="Filter"></i>
+          </li>
+        </ul>
       </div>
     </nav>
   );

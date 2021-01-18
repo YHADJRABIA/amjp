@@ -23,7 +23,6 @@ $bottomBorder: 2px groove #bdbdbd;
 /*- Centred flex -*/
 @mixin flexCenter($direction) {
   display: flex;
-  align-content: center;
   align-items: center;
   flex-flow: wrap $direction;
 }
@@ -58,7 +57,9 @@ html {
 body {
   //overflow-x: hidden;
   //@include flexCenter(row);
-  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 button {

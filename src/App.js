@@ -34,19 +34,20 @@ function App() {
       {/* Passes data to all wrapped components. */}
       <DataProvider>
         {/* Enables routing with all wrapped components. */}
-        <Header />
-        <Main />
-        <Footer />
+        <Router>
+          <Header />
+          <main>
+            {/* Enables the rendering of one component only. */}
+            <Switch>
+              <Route path={["/", "/home"]} exact component={Home}></Route>
+              <Route path={"/registration"} exact component={Register}></Route>
+              <Route path={"/login"} exact component={Login}></Route>
+              <Route path={"/account"} exact component={Account}></Route>
+            </Switch>
+          </main>
+          <Footer />
+        </Router>
       </DataProvider>
-      <Router>
-        {/* Enables the rendering of one component only. */}
-        <Switch>
-          <Route path={["/", "/home"]} exact component={Home}></Route>
-          <Route path={["/registration"]} exact component={Register}></Route>
-          <Route path={["/login"]} exact component={Login}></Route>
-          <Route path={["/account"]} exact component={Account}></Route>
-        </Switch>
-      </Router>
     </>
   );
 }
