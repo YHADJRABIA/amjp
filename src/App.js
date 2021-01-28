@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from "react";
 import "./styles/app.scss";
 
-/* Fixed elements */
+/* Composants */
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 
-/* Pages */
+/* Pages & routage */
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Pages/Home";
-import Register from "./components/Pages/Register";
+import Registration from "./components/Pages/Registration";
 import Login from "./components/Pages/Login";
 import Account from "./components/Pages/Account";
 
-import i18n from "./i18n/i18n"; // Translating content
+/* Contexts*/
+import { DataProvider } from "./Contexts/DataContext"; // Données
+import { ThemeProvider } from "./Contexts/ThemeContext"; // Thème
+import { AuthProvider } from "./Contexts/AuthContext"; // Authentification
+
+/* Traduction et chargement */
+import i18n from "./i18n/i18n";
 import Loading from "./components/Others/Loading";
-import { DataProvider } from "./components/Context/DataContext";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,22 +37,28 @@ function App() {
   return (
     <>
       {/* Passes data to all wrapped components. */}
-      <DataProvider>
-        {/* Enables routing with all wrapped components. */}
-        <Router>
-          <Header />
-          <main>
-            {/* Enables the rendering of one component only. */}
-            <Switch>
-              <Route path={["/", "/home"]} exact component={Home}></Route>
-              <Route path={"/registration"} exact component={Register}></Route>
-              <Route path={"/login"} exact component={Login}></Route>
-              <Route path={"/account"} exact component={Account}></Route>
-            </Switch>
-          </main>
-          <Footer />
-        </Router>
-      </DataProvider>
+      <ThemeProvider>
+        <DataProvider>
+          {/* Enables routing with all wrapped components. */}
+          <Router>
+            <Header />
+            <main>
+              {/* Enables the rendering of one component only. */}
+              <Switch>
+                <Route path={["/", "/home"]} exact component={Home}></Route>
+                <Route
+                  path={"/registration"}
+                  exact
+                  component={Registration}
+                ></Route>
+                <Route path={"/login"} exact component={Login}></Route>
+                <Route path={"/account"} exact component={Account}></Route>
+              </Switch>
+            </main>
+            <Footer />
+          </Router>
+        </DataProvider>
+      </ThemeProvider>
     </>
   );
 }

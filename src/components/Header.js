@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { DataContext } from "../components/Context/DataContext";
+import { DataContext } from "../Contexts/DataContext";
 import Nav from "./Header/Nav";
 import { useTranslation } from "react-i18next";
 
@@ -11,7 +11,7 @@ const Header = () => {
       <Nav
         socialMedia={content.socialMedia}
         radioTVReplay={content.radioTVReplay}
-        myAccount={content.myAccount}
+        account={content.account}
         navMenu={content.navMenu}
       />
     </header>

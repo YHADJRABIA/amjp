@@ -1,59 +1,70 @@
-import React, { useState } from "react";
-import logo from "../img/logo.jpg";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
-const Nav = ({ socialMedia, radioTVReplay, myAccount, navMenu, i18n }) => {
+/* Composants */
+import DarkMode from "../Others/DarkMode";
+
+/* Ressources*/
+import logo from "../img/logo.jpg";
+
+/* Contexts */
+import { ThemeContext } from "../../Contexts/ThemeContext";
+
+const Nav = ({ socialMedia, radioTVReplay, account, navMenu, i18n }) => {
+  // Dark mode
+  const { darkMode } = useContext(ThemeContext);
+
+  /*-- Changement de langue --*/
+  const changeLanguage = (ln) => {
+    return () => i18n.changeLanguage(ln);
+  };
+
+  /* Menu déroulant */
   const [isToggled, setToggle] = useState(false);
 
   const toggleNav = () => {
     setToggle(!isToggled);
   };
 
-  const changeLanguage = (ln) => {
-    return () => {
-      i18n.changeLanguage(ln);
-    };
-  };
-
   return (
-    <nav>
+    <nav className={darkMode ? "dark-mode" : ""} role="navigation">
       {/* Nav supérieure */}
       <div className="nav-top">
         <ul className="social-media">
-          {socialMedia.map((element) => (
-            <li key={element.id}>
-              <a href={element.path} target="_blank" rel="noopener noreferrer">
+          {socialMedia.map((el) => (
+            <li key={el.id}>
+              <a href={el.path} target="_blank" rel="noopener noreferrer">
                 <i
-                  style={{ color: element.colour }}
-                  className={element.icon}
-                  title={element.name}
-                  key={element.id}
+                  style={{ color: el.colour }}
+                  className={el.icon}
+                  title={el.name}
+                  key={el.id}
                 ></i>
               </a>
             </li>
           ))}
         </ul>
         <ul className="radio-tv-replay">
-          {radioTVReplay.map((element) => (
-            <li key={element.id}>
-              <Link
-                to={`/${element.path}`}
-                title={element.name}
-                key={element.id}
-              >
-                {element.name}
+          {radioTVReplay.map((el) => (
+            <li key={el.id}>
+              <Link to={`/${el.path}`} title={el.name} key={el.id}>
+                {el.name}
               </Link>
             </li>
           ))}
         </ul>
 
+        <DarkMode />
+
         {/* Accès au compte/Inscription */}
         <ul className="account">
-          <li>
-            <Link to="/account" title={myAccount.name}>
-              <button className="shake">{myAccount.name}</button>
-            </Link>
-          </li>
+          {account.map((el) => (
+            <li key={el.id}>
+              <Link to="/account" title={el.name}>
+                <button>{el.name}</button>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -67,14 +78,10 @@ const Nav = ({ socialMedia, radioTVReplay, myAccount, navMenu, i18n }) => {
         ></img>
 
         <ul className="nav-menu">
-          {navMenu.map((element) => (
-            <li key={element.id}>
-              <Link
-                to={`/${element.path}`}
-                title={element.name}
-                key={element.id}
-              >
-                {element.name}
+          {navMenu.map((el) => (
+            <li key={el.id}>
+              <Link to={`/${el.path}`} title={el.name} key={el.id}>
+                {el.name}
               </Link>
             </li>
           ))}

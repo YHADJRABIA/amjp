@@ -22,6 +22,9 @@
   },
 
   "myAccount": "Mon compte",
+  "login": "Connexion",
+  "registration": "Inscription",
+  "logout": "Déconnexion",
 
   "footerMenu": {
     "listen": "Ecouter",

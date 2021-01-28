@@ -1,29 +1,43 @@
 // Variables
 
 $separatorBorder: 1px solid #000;
+$dmSeparatorBorder: 1px solid #fff;
 
 // Barre de navigation
 nav {
-  height: 20vh;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  min-height: 18vh;
   width: 100%;
   //top: 0;
   z-index: 1;
 
   // Partie supérieure
   & > :first-child {
-    height: 30%;
-
+    transition: $bgColourTransition;
+    min-height: 4.4vh;
     background-color: $topNav-colour;
     border-bottom: $bottomBorder;
     @include flexCenter(row);
     justify-content: space-between;
     padding: 0 2rem;
+
+    // Réseaux sociaux
+    .social-media {
+      flex: 2 0;
+    }
+
     // Radios | Chaînes TV | Replay
     .radio-tv-replay {
       @include flexCenter(row);
+      flex: 2 0;
+      justify-content: center;
       & > * {
         padding: 0.9rem 1.5rem;
         text-transform: uppercase;
+        &:hover {
+          color: blue;
+        }
       }
       // Chaînes TV
       & > :nth-child(2n) {
@@ -33,12 +47,16 @@ nav {
     }
     // Mon compte
     .account {
+      display: flex;
+      justify-content: flex-end;
+      flex: 1 0 auto;
     }
   }
 
   // Partie inférieure
   & > :last-child {
-    height: 70%;
+    transition: $bgColourTransition;
+    min-height: 13.6vh;
     border-bottom: $bottomBorder;
     @include flexCenter(column);
     justify-content: space-evenly;
@@ -50,13 +68,24 @@ nav {
     }
 
     .nav-menu {
+      background-color: transparent;
       text-transform: uppercase;
       @include flexCenter(row);
       justify-content: center;
+
+      & li > * {
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      &:hover li:not(:hover):not(:last-child) > * {
+        opacity: 0.2;
+      }
+
       & > * {
         margin: 0 2rem;
       }
     }
+
     .fa-search {
       color: $searchIcon-colour;
       font-size: 1.5rem;
@@ -93,7 +122,90 @@ nav {
 /*------------- Reponsive ---------*/
 // Tablet
 @media only screen and (min-width: map-get($breakpoints, tablet)) {
+  .theme-toggler {
+    .dark-mode-label {
+      transform: scale(1.5);
+    }
+  }
   // Desktop
   @media screen and (min-width: map-get($breakpoints, desktop)) {
+  }
+}
+
+/* Thèmes */
+
+nav.dark-mode {
+  & > :first-child {
+    background-color: $dmTopNav-colour;
+    .radio-tv-replay {
+      & > *:hover {
+        color: yellow;
+      }
+      & > :nth-child(2n) {
+        border-left: $dmSeparatorBorder;
+        border-right: $dmSeparatorBorder;
+      }
+    }
+  }
+  & > :last-child {
+    background-color: #000;
+  }
+  .nav-menu,
+  .radio-tv-replay {
+    color: #fff;
+  }
+}
+
+/* Dark mode */
+.theme-toggler {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1 0;
+  .dark-mode-checkbox {
+    opacity: 0;
+    position: absolute;
+  }
+
+  .dark-mode-label {
+    background-color: #111;
+    border: $separatorBorder;
+    border-radius: 5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    position: relative;
+    height: 2.5rem;
+    width: 5rem;
+    transform: scale(1.2);
+
+    // Moon icon
+    & > i:first-child {
+      font-size: 1.5rem;
+      color: #f1c40f;
+    }
+
+    // Sun icon
+    & > i:nth-child(n + 1) {
+      font-size: 1.5rem;
+      color: #f39c12;
+    }
+  }
+
+  .dark-mode-label .ball {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0.1rem;
+    height: 95%;
+    width: 45%;
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .dark-mode-checkbox:checked + .dark-mode-label .ball {
+    transform: translateX(100%);
   }
 }

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { DataContext } from "../components/Context/DataContext";
+import { DataContext } from "../Contexts/DataContext";
 /* import About from "./Main/About"; */
 import { useTranslation } from "react-i18next"; // Translation module
 

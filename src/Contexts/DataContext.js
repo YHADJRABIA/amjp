@@ -53,7 +53,11 @@ export const DataProvider = (props) => {
       { name: i18n.t("navTop.replay"), path: "replay", id: 3 },
     ],
 
-    myAccount: { name: i18n.t("myAccount"), path: "account" },
+    account: [
+      { name: i18n.t("myAccount"), path: "account", id: 1 },
+      { name: i18n.t("login"), path: "login", id: 2 },
+      { name: i18n.t("registration"), path: "registration", id: 3 },
+    ],
 
     // Bottom nav
     navMenu: [

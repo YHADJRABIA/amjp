@@ -20,6 +20,15 @@ $footerColour: #bcbabb;
 $buttonColour: #858989;
 $bottomBorder: 2px groove #bdbdbd;
 
+// Dark mode
+$dmTopNav-colour: #370617;
+$dmFooterColour: #03071e;
+$dmGradient: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+
+// Transitions
+
+$bgColourTransition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+
 /*- Centred flex -*/
 @mixin flexCenter($direction) {
   display: flex;
@@ -63,6 +72,7 @@ body {
 }
 
 button {
+  transition: $bgColourTransition;
   vertical-align: center;
   cursor: pointer;
   font-size: 1rem;
@@ -74,6 +84,7 @@ button {
 }
 
 button:hover {
+  background-color: blue;
 }
 
 /* Fonts */
@@ -116,8 +127,13 @@ a {
 
 .social-media {
   @include flexCenter(row);
+
   & > * {
     margin: 0 0.2rem;
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 

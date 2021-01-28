@@ -1,28 +1,32 @@
 footer {
-  height: 20vh;
+  min-height: 15vh;
   width: 100%;
   position: absolute;
   bottom: 0;
   background-color: $footerColour;
+  @include flexCenter(column);
+  justify-content: space-around;
+  padding: 2rem 0;
+  transition: $bgColourTransition;
+
+  & > :last-child {
+    margin-top: 1.5rem;
+  }
 
   // footer-content
-  & > :first-child {
-    height: 100%;
+  .footer-menu {
+    width: 100%;
+    line-height: 1.8;
+    height: 10rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
     @include flexCenter(column);
-    justify-content: space-around;
-
-    .footer-menu {
-      width: 100%;
-      line-height: 2;
-      height: 70%;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 0.2rem;
-      font-weight: bold;
-      @include flexCenter(column);
-      align-items: start;
-      align-content: space-evenly;
-      justify-content: center;
+    align-content: space-evenly;
+    justify-content: center;
+    & * > :hover {
+      color: yellow;
     }
   }
 }
@@ -31,17 +35,20 @@ footer {
 // Tablet
 @media only screen and (min-width: map-get($breakpoints, tablet)) {
   footer {
-    //height: 15vh;
-    & > :first-child {
-      flex-direction: row;
-      .footer-menu {
-        height: 80%;
-        width: 50%;
-        align-content: space-around;
-      }
+    flex-direction: row;
+    .footer-menu {
+      align-items: start;
+      width: 50%;
+      align-content: space-around;
     }
   }
   // Desktop
   @media screen and (min-width: map-get($breakpoints, desktop)) {
   }
+}
+
+/* Dark mode */
+
+footer.dark-mode {
+  background-color: $dmFooterColour;
 }
