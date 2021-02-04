@@ -3,15 +3,16 @@ import "./styles/app.scss";
 
 /* Composants */
 import Header from "./components/Header";
-import Main from "./components/Main";
 import Footer from "./components/Footer";
 
 /* Pages & routage */
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ProtectedRoute from "./components/Others/ProtectedRoute";
 import Home from "./components/Pages/Home";
 import Registration from "./components/Pages/Registration";
 import Login from "./components/Pages/Login";
 import Account from "./components/Pages/Account";
+import PageNotFound from "./components/Others/PageNotFound";
 
 /* Contexts*/
 import { DataProvider } from "./Contexts/DataContext"; // Données
@@ -45,14 +46,16 @@ function App() {
             <main>
               {/* Enables the rendering of one component only. */}
               <Switch>
-                <Route path={["/", "/home"]} exact component={Home}></Route>
-                <Route
-                  path={"/registration"}
-                  exact
-                  component={Registration}
-                ></Route>
-                <Route path={"/login"} exact component={Login}></Route>
-                <Route path={"/account"} exact component={Account}></Route>
+                <Route path={["/", "/home"]} exact component={Home} />
+                <Route path={"/registration"} exact component={Registration} />
+                <Route path={"/login"} exact component={Login} />
+                {/* <Route path={"/account"} exact component={Account}/> */}
+                <ProtectedRoute
+                  path={"/account"}
+                  component={Account}
+                  isAuth={true}
+                />
+                <Route component={PageNotFound} />
               </Switch>
             </main>
             <Footer />

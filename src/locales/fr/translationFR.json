@@ -21,7 +21,48 @@
     "contact": "Contact"
   },
 
-  "myAccount": "Mon compte",
+  "heroBanner": {
+    "watch":"regarder",
+    "inedit":"inedit"
+  },
+
+  "homePage": {
+  "series":"Séries",
+  "documentary":"Reportages et documentaires",
+  "interviews":"Interviews",
+  "seeMore":"Voir +",
+  "seeAll":"Voir toutes les vidéos"
+  },
+
+  "myAccount": {
+    "title": "Mon compte",
+    "summary": "Sommaire",
+    "updateData": "Mettre à jour mes coordonnées",
+    "logout": "Se déconnecter",
+    "details": {
+      "title": "Détails du compte",
+      "id": "identifiant du compte",
+      "e-mail": "Compte e-mail",
+      "state": "État du compte"
+    },
+    "update-details": {
+      "title": "Détails de mise à jour",
+      "firstName": "Prénom",
+      "surname": "Nom de famille"
+    },
+    "update-email": {
+      "title": "Mettre à jour l'e-mail",
+      "newEmail": "Nouvelle adresse e-mail",
+      "confirm": "Confirmer nouvel e-mail"
+    },
+    "update-password": {
+      "title": "Mettre à jour le mot de passe",
+      "currentPassword": "Mot de passe actuel",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmer le nouveau mot de passe"
+    }
+  },
+
   "login": "Connexion",
   "registration": "Inscription",
   "logout": "Déconnexion",

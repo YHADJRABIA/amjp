@@ -2,10 +2,10 @@ import React, { createContext, useState, useEffect } from "react";
 
 export const ThemeContext = createContext();
 
-export const ThemeProvider = (props) => {
+export const ThemeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(getInitialMode());
 
-  // Prefered theme stored in local storage
+  // Thème favori contenu dans local storage.
   useEffect(() => {
     localStorage.setItem("dark", JSON.stringify(darkMode));
   }, [darkMode]);
@@ -14,17 +14,17 @@ export const ThemeProvider = (props) => {
     setDarkMode(!darkMode);
   };
 
-  // Gets previously stored theme if it exists.
+  // Récupère le thème favori s'il existe.
   function getInitialMode() {
-    const isReturningUser = "dark" in localStorage; // Returns true if user already used the website.
+    const isReturningUser = "dark" in localStorage; // Retourne vrai si l'utilisateur a déjà visité le site.
     const savedMode = JSON.parse(localStorage.getItem("dark"));
-    const userPrefersDark = getPrefColorScheme(); // Gets user colour preference.
+    const userPrefersDark = getPrefColorScheme(); // Récupère le thème favori.
 
-    // If mode was saved ► return saved mode else get users general preference.
+    // Si thème enregistré ► le retourne, sinon retourne la préfèrence générale de l'utilisateur sur le navigateur.
     return isReturningUser ? savedMode : userPrefersDark ? true : false;
   }
 
-  // Checks for user's preference.
+  // Évalue la préférence de l'utilisateur.
   function getPrefColorScheme() {
     return !window.matchMedia
       ? null
@@ -33,7 +33,7 @@ export const ThemeProvider = (props) => {
 
   return (
     <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      {props.children}
+      {children}
     </ThemeContext.Provider>
   );
 };

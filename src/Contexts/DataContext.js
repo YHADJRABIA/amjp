@@ -5,17 +5,19 @@ import { useTranslation } from "react-i18next";
 The components need to also import { useContext} from react to consume the data.*/
 export const DataContext = createContext();
 
-//Holds the data to be provided. To be imported by App.js.
-export const DataProvider = (props) => {
+// Contient les données. Doit être importé par App.js.
+export const DataProvider = ({ children }) => {
   const { t, i18n } = useTranslation();
 
   const content = {
+    // Partie générale
+
     languages: [
       { name: i18n.t("languages.en"), code: "en", flag: "gb", id: 1 },
       { name: i18n.t("languages.fr"), code: "fr", flag: "fr", id: 2 },
     ],
 
-    // Top nav
+    // Nav du haut
     socialMedia: [
       {
         name: "Facebook",
@@ -54,12 +56,12 @@ export const DataProvider = (props) => {
     ],
 
     account: [
-      { name: i18n.t("myAccount"), path: "account", id: 1 },
-      { name: i18n.t("login"), path: "login", id: 2 },
-      { name: i18n.t("registration"), path: "registration", id: 3 },
+      { name: i18n.t("myAccount.title"), path: "account", id: 1 },
+      /*       { name: i18n.t("login"), path: "login", id: 2 },
+      { name: i18n.t("registration"), path: "registration", id: 3 }, */
     ],
 
-    // Bottom nav
+    // Nav du bas
     navMenu: [
       { name: i18n.t("navMenu.home"), path: "home", id: 1 },
       { name: i18n.t("navMenu.series"), path: "series", id: 2 },
@@ -92,6 +94,20 @@ export const DataProvider = (props) => {
       },
       { name: i18n.t("footerMenu.cgu"), path: "cgu", id: 10 },
     ],
+
+    // Page d'accueil
+    homePage:[
+      { name: i18n.t("homePage.series"), class: "series", id: 1 },
+      { name: i18n.t("homePage.documentary"), class: "documentary", id: 2 },
+      { name: i18n.t("homePage.interviews"), class: "interviews", id: 3 },
+    ],
+
+    // Partie « Mon compte »
+    myAccountSubtitles: [
+      { name: i18n.t("myAccount.summary"), path: "account", id: 1 },
+      { name: i18n.t("myAccount.updateData"), path: "", id: 2 },
+      { name: i18n.t("myAccount.logout"), path: "", id: 3 },
+    ],
   };
 
   /* 
@@ -100,8 +116,8 @@ export const DataProvider = (props) => {
   Passing navTitles as a value to be consumed by Nav.js
   */
   return (
-    <DataContext.Provider value={content}>
-      {props.children}
+    <DataContext.Provider value={content} translation={(t, i18n)}>
+      {children}
     </DataContext.Provider>
   );
 };

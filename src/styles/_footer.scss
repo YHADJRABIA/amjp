@@ -1,8 +1,8 @@
 footer {
   min-height: 15vh;
   width: 100%;
-  position: absolute;
-  bottom: 0;
+  /*   position: absolute;
+  bottom: 0; */
   background-color: $footerColour;
   @include flexCenter(column);
   justify-content: space-around;

@@ -1,13 +1,128 @@
 main {
-  height: 60vh;
+  //margin: 0 2rem;
+  min-height: 60vh;
+  width: 100%;
+  @include flexCenter(column);
+}
+
+form {
   display: flex;
+  flex-direction: column;
+}
+
+/*------------------- Page d'accueil -------------------*/
+
+// Banière
+.hero-banner {
+  @include flexCenter(column);
+  justify-content: flex-end;
+background: url(https://occhimagazine.com/wp-content/uploads/2018/02/RaidersPoster-1024x496.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.8); 
+  width: 100%;
+  height: 40rem;
+
+  & > * {
+    color: white;
+  }
+
+  .hero-img{
+    width:100%;
+  }
+
+  .hero-logo {
+    width: 80%;
+    margin: 0 auto;
+    @include flexCenter(row);
+    justify-content: space-evenly;
+  }
+
+  .hero-content {
+    background-color: transparent;
+    margin-bottom: 2rem;
+  }
+}
+
+// Label « inédit »
+.inedit {
+  cursor: pointer;
+  letter-spacing: 0.2rem;
+  padding: 0.1rem 1.2rem;
+  text-transform: uppercase;
+  border: 2px solid #fff;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  &:hover {
+    color: yellow;
+    border-color: yellow;
+  }
+}
+
+// Label « -12 »
+
+// Parties « Séries », « Reportages et documentaires »...etc
+.home-videos {
+  @include flexCenter(column);
+  justify-content: space-evenly;
+  width: 80%;
+
+  & > :last-child{
+    margin: 3rem 0;
+  }
+  & article {
+    @include flexCenter(column);
+    justify-content: space-evenly;
+    width: 60%;
+    //Titles
+    & > :first-child {
+      margin: 1rem;
+    }
+    // Item
+    & > :last-child div {
+      margin: 0.5rem;
+      width: 20rem;
+      height: 20rem;
+      background-color: $footerColour;
+      background-image: linear-gradient(to right, $footerColour 0%, #c0c0c4 20%, $footerColour 40%, $footerColour 100%);
+      background-repeat: no-repeat;
+      animation: shimmer 1s infinite linear;
+    }
+  }
+  & article > div {
+    width: 100%;
+    @include flexCenter(row);
+    justify-content: space-between;
+  }
+}
+
+/*------------------ Authentification ------------------*/
+
+.login-page {
+  @include flexCenter(column);
   justify-content: center;
-  align-items: center;
+}
+
+/* Mon compte */
+.myAccount-page {
+  width: 100%;
+  justify-content: space-evenly;
+  .myAccount-subtitles {
+    width: 100%;
+    @include flexCenter(row);
+    justify-content: space-evenly;
+  }
 }
 
 /*------------- Reponsive ---------*/
 //Tablet
 @media only screen and (min-width: map-get($breakpoints, tablet)) {
+  .myAccount-page {
+    .myAccount-subtitles {
+      width: 35rem;
+      margin-right: auto;
+    }
+  }
   //Desktop
   @media screen and (min-width: map-get($breakpoints, desktop)) {
   }

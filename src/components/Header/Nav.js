@@ -53,19 +53,20 @@ const Nav = ({ socialMedia, radioTVReplay, account, navMenu, i18n }) => {
             </li>
           ))}
         </ul>
+        <div className="right-nav">
+          <DarkMode />
 
-        <DarkMode />
-
-        {/* Accès au compte/Inscription */}
-        <ul className="account">
-          {account.map((el) => (
-            <li key={el.id}>
-              <Link to="/account" title={el.name}>
-                <button>{el.name}</button>
-              </Link>
-            </li>
-          ))}
-        </ul>
+          {/* Accès au compte/Inscription */}
+          <ul className="account">
+            {account.map((el) => (
+              <li key={el.id}>
+                <Link to={`/${el.path}`} title={el.name} key={el.id}>
+                  <button className="button-secondary">{el.name}</button>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       {/* Nav inférieure */}

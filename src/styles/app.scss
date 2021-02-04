@@ -17,7 +17,8 @@ $topNav-colour: #f1f1f1;
 $bottomNav-colour: #fff;
 $searchIcon-colour: #a8adbf;
 $footerColour: #bcbabb;
-$buttonColour: #858989;
+$buttonPrimary: #f90360;
+$buttonSecondary: #858989;
 $bottomBorder: 2px groove #bdbdbd;
 
 // Dark mode
@@ -75,12 +76,21 @@ button {
   transition: $bgColourTransition;
   vertical-align: center;
   cursor: pointer;
-  font-size: 1rem;
   border-radius: 1.6rem;
-  padding: 0.2rem 1.1rem;
-  background-color: $buttonColour;
   color: #fff;
   text-transform: uppercase;
+}
+
+.button-primary {
+  background-color: $buttonPrimary;
+  padding: 0.7rem 1.8rem;
+  font-size: 1.2rem;
+}
+
+.button-secondary {
+  padding: 0.2rem 1.1rem;
+  font-size: 1rem;
+  background-color: $buttonSecondary;
 }
 
 button:hover {
@@ -89,15 +99,27 @@ button:hover {
 
 /* Fonts */
 h1 {
+  font-size: 4rem;
+  letter-spacing: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 h2 {
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+h4 {
+  font-size: 1.6rem;
 }
 
 h5 {
 }
 
 p {
+  font-size: 1.2rem;
 }
 
 /* Various */
@@ -112,6 +134,12 @@ img {
 }
 
 span {
+  cursor: pointer;
+  font-size: 1.1rem;
+  letter-spacing: 0.2rem;
+  color: $secondaryColour;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 ul {
@@ -145,6 +173,17 @@ $breakpoints: (
 ) !default;
 
 /* Effects and animations */
+
+// Animation de chargement 
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  
+  100% {
+    background-position: 468px 0; 
+  }
+}
 
 /*---- Animations ----*/
 
