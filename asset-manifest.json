@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/amjp/static/css/main.b83d0500.chunk.css",
+    "main.js": "/amjp/static/js/main.2f2b8dac.chunk.js",
+    "main.js.map": "/amjp/static/js/main.2f2b8dac.chunk.js.map",
+    "runtime-main.js": "/amjp/static/js/runtime-main.8f92c2d8.js",
+    "runtime-main.js.map": "/amjp/static/js/runtime-main.8f92c2d8.js.map",
+    "static/js/2.24d8b75e.chunk.js": "/amjp/static/js/2.24d8b75e.chunk.js",
+    "static/js/2.24d8b75e.chunk.js.map": "/amjp/static/js/2.24d8b75e.chunk.js.map",
+    "index.html": "/amjp/index.html",
+    "static/css/main.b83d0500.chunk.css.map": "/amjp/static/css/main.b83d0500.chunk.css.map",
+    "static/js/2.24d8b75e.chunk.js.LICENSE.txt": "/amjp/static/js/2.24d8b75e.chunk.js.LICENSE.txt",
+    "static/media/logo.45d5ac31.jpg": "/amjp/static/media/logo.45d5ac31.jpg",
+    "static/media/poster.89ef5c4f.jpg": "/amjp/static/media/poster.89ef5c4f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8f92c2d8.js",
+    "static/js/2.24d8b75e.chunk.js",
+    "static/css/main.b83d0500.chunk.css",
+    "static/js/main.2f2b8dac.chunk.js"
+  ]
+}
